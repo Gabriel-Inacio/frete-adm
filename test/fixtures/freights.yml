@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  truckId: 1
+  motoristId: 1
+  clientId: 1
+  origin: MyString
+  destination: MyString
+  valueKm: 9.99
+  distanceKm: 9.99
+  description: 
+  situation: 
+  spent: 9.99
+  descriptionSpent: MyText
+  numberHead: 1
+  exitDate: 2015-05-24 19:18:40
+  arrivalDate: 2015-05-24 19:18:40
+  paidDriver: false
+
+two:
+  truckId: 1
+  motoristId: 1
+  clientId: 1
+  origin: MyString
+  destination: MyString
+  valueKm: 9.99
+  distanceKm: 9.99
+  description: 
+  situation: 
+  spent: 9.99
+  descriptionSpent: MyText
+  numberHead: 1
+  exitDate: 2015-05-24 19:18:40
+  arrivalDate: 2015-05-24 19:18:40
+  paidDriver: false
