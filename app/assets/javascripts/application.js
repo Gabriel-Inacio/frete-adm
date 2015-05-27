@@ -17,3 +17,5 @@
 //= require select2
 //= require_tree ./lib
 //= require lib/masks.js
+//= require util.js
+//= require common.js

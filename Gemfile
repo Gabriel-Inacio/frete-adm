@@ -45,4 +45,6 @@ gem 'pry'
 gem 'protected_attributes'
 gem "select2-rails"
 
-
+#https://github.com/rfs/validates_cpf_cnpj
+#gem 'validates_cpf_cnpj'
+#gem 'brazilian-rails'

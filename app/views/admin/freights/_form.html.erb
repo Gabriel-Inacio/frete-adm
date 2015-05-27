@@ -8,14 +8,14 @@
         <%= f.input :destination, input_html: { class: "campo20" } %>
         <%= f.input :valueKm, input_html: { class: "campo20" } %>
         <%= f.input :distanceKm, input_html: { class: "campo20" } %>
-        <%= f.input :description, input_html: { class: "campo20" } %>
+        <%= f.input :description, as: :text, input_html: { class: "width50per", rows: 5,
+                                                           onkeyup: "maxLengthText(this);", maxlength: "1000" }, :hint=> "<span id=\"contador\"></span>".html_safe %>
         <%= f.input :situation, input_html: { class: "campo20" } %>
         <%= f.input :spent, input_html: { class: "campo20" } %>
         <%= f.input :descriptionSpent, input_html: { class: "campo20" } %>
         <%= f.input :numberHead, input_html: { class: "campo20" } %>
-        <%= f.input :exitDate, input_html: { class: "campo20" } %>
-        <%= f.input :arrivalDate, input_html: { class: "campo20" } %>
-
+        <%= f.input :exitDate, :as => :string, :input_html => {class: "campo10 input_date_picker", value: DateHelper.format_date(f.object.start_date)}  %>
+        <%= f.input :arrivalDate, :as => :string, :input_html => {class: "campo10 input_date_picker", value: DateHelper.format_date(f.object.start_date)}  %>
     <% end %>
     <%= f.actions %>
 <% end %>

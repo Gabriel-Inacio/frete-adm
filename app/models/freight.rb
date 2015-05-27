@@ -8,4 +8,6 @@ class Freight < ActiveRecord::Base
       :destination, :valueKm, :distanceKm, :description, :situation, :spent, :descriptionSpent,
       :numberHead, :exitDate, :arrivalDate
 
+  #validates :cpf, cpf: true, :allow_blank => true
+
 end
