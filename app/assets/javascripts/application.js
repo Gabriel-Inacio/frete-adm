@@ -14,3 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require select2
+//= require_tree ./lib
+//= require lib/masks.js

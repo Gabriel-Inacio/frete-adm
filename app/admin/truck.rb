@@ -1,11 +1,9 @@
 ActiveAdmin.register Truck do
 
+  form :partial => "form"
+
   controller do
-    def create
-      binding.pry
-      truck =  Truck.new(params[:truck])
-      truck.save
-    end
+
   end
 
 

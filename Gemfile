@@ -43,3 +43,6 @@ gem "formtastic", github: "justinfrench/formtastic"
 gem 'therubyracer', :platform => :ruby
 gem 'pry'
 gem 'protected_attributes'
+gem "select2-rails"
+
+

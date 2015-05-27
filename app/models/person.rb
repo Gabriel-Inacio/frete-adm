@@ -1,3 +1,3 @@
 class Person < ActiveRecord::Base
-  attr_accessible :name, :cpf, :type
+  attr_accessible :name, :cpf, :type_person
 end
