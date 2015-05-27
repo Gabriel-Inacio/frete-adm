@@ -1,16 +1,10 @@
 pt-BR:
  button:
-    clone: Clonar %{model}
     new: Novo(a) %{model}
     return: Voltar
     save: Salvar
-    publish: Publicar
-    preview: Preview
     activate: Ativar
     desactive: Desativar
-    filter: Fitlrar
-    search_campaign: Buscar Campanhas
-    run_report: Executar Relatório
 
  activerecord:
      errors:
