@@ -9,5 +9,6 @@ ActiveAdmin.register Motorist do
         @motorists = @motorists.page(params[:page] || 1)
       end
     end
+
   end
 end

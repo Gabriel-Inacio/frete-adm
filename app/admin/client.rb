@@ -9,5 +9,6 @@ ActiveAdmin.register Client do
         @clients = @clients.page(params[:page] || 1)
       end
     end
+
   end
 end
