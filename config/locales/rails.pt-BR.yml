@@ -1,0 +1,56 @@
+pt-BR:
+ button:
+    clone: Clonar %{model}
+    new: Novo(a) %{model}
+    return: Voltar
+    save: Salvar
+    publish: Publicar
+    preview: Preview
+    activate: Ativar
+    desactive: Desativar
+    filter: Fitlrar
+    search_campaign: Buscar Campanhas
+    run_report: Executar Relatório
+
+ activerecord:
+     errors:
+       <<: *errors
+     models: &models
+          truck: "Caminhão"
+          motorist: Motorista
+          freight: Frete
+          client: Cliente
+          person: Pessoa
+     attributes:
+           truck:
+             board: Placa
+           motorist:
+             name: Nome
+             cpf: CPF
+           client:
+             name: Nome
+             cpf: CPF
+           client:
+             name: Nome
+             cpf: CPF
+           person:
+             name: Nome
+             cpf: CPF
+           freight:
+             truckId: "CaminhãoId"
+             truck: "Caminhão"
+             motorist: Motorista
+             motoristId: MotoristaId
+             client: Cliente
+             clientId: ClienteId
+             origin: Saida
+             destination: Destino
+             valueKm: "Preço do KM"
+             distanceKm: "Distancia em KM"
+             description: "Descrição"
+             situation: "Situação"
+             spent: "Valor Gasto"
+             descriptionSpent: "Descrição dos gastos"
+             numberHead: "Número de cabeça"
+             exitDate: "Data de saída"
+             arrivalDate: "Data de Chegada"
