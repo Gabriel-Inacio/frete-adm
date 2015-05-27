@@ -13,8 +13,18 @@
 
 // Overriding any non-variable SASS must be done after the fact.
 // For example, to change the default status-tag color:
+
+.status_tag.active {
+  background: #8daa92;
+}
+.status_tag.new {
+  background: #e29b20;
+}
+.status_tag.expired {
+  background: #d45f53;
+}
+
 //
-//   .status_tag { background: #6090DB; }
 .campo5{
   width: 5% !important;
 }
@@ -63,4 +73,10 @@
 
 .width50per {
   width: 50% !important;
+}
+
+.div-separar{
+  width: 100%;
+  border-top: #e4e4e4 solid 1px;
+  margin-top: 15px;
 }

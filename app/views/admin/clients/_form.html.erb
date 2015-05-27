@@ -5,4 +5,36 @@
         <%= f.input :cpf, input_html: { class: "cpf campo10" } %>
     <% end %>
     <%= f.actions %>
+
+    <% if @client.present? %>
+
+        <div class="div-separar clear-both">&nbsp;</div>
+
+        <table class="index_table">
+          <thead>
+          <tr>
+            <th>Saida</th>
+            <th>Destino</th>
+            <th>Data de saida</th>
+            <th>Data de chegada</th>
+            <th>Situação</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <%  @client.freights.each do |freight| %>
+              <tr>
+                <td><%= freight.origin %></td>
+                <td><%= freight.destination %></td>
+                <td><%= DateHelper.format_date(freight.exitDate) %></td>
+                <td><%= DateHelper.format_date(freight.arrivalDate) %></td>
+                <td><%= status_tag(StatusHelper::SITUATION[freight.situation],(freight.situation == 0 ? :warning : :ok)) %></td>
+                <td><% link_to "edit", edit_admin_freight_path(freight) %></td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+
+    <% end %>
+
 <% end %>
