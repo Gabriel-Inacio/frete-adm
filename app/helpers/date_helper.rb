@@ -9,6 +9,14 @@ module DateHelper
     Date.strptime(date,"%Y-%m-%d")
   end
 
+  def self.str_to_date2(date)
+    Date.strptime("10/15/2013", "%m/%d/%Y")
+  end
+
+  def self.format_date2(date)
+   binding.pry
+  end
+
   def self.format_date(date, format = "%d/%m/%Y")
     if date and date.class == String and !date.empty?
       self.format_date(Date.parse(date), format)
@@ -24,9 +32,6 @@ module DateHelper
       datetime.strftime(format) if datetime and datetime.class != String
     end
   end
-
-
-
 
   def self.format_oas_date(date)
   	self.format_date date, "%Y-%m-%d"

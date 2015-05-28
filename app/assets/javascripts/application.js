@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
@@ -19,3 +20,6 @@
 //= require lib/masks.js
 //= require util.js
 //= require common.js
+//= require maskedinput
+//= require jquery-ui
+

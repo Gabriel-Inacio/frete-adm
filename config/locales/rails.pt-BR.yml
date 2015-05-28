@@ -1,51 +1,66 @@
 pt-BR:
  button:
-    new: Novo(a) %{model}
-    return: Voltar
-    save: Salvar
-    activate: Ativar
-    desactive: Desativar
+  new: Novo(a) %{model}
+  return: Voltar
+  save: Salvar
+  activate: Ativar
+  desactive: Desativar
 
  activerecord:
-     errors:
-       <<: *errors
-     models: &models
-          truck: "Caminhão"
-          motorist: Motorista
-          freight: Frete
-          client: Cliente
-          person: Pessoa
-     attributes:
-           truck:
-             board: Placa
-           motorist:
-             name: Nome
-             cpf: CPF
-           client:
-             name: Nome
-             cpf: CPF
-           client:
-             name: Nome
-             cpf: CPF
-           person:
-             name: Nome
-             cpf: CPF
-           freight:
-             truckId: "CaminhãoId"
-             truck: "Caminhão"
-             motorist: Motorista
-             motoristId: MotoristaId
-             client: Cliente
-             clientId: ClienteId
-             origin: Saida
-             destination: Destino
-             valueKm: "Preço do KM"
-             distanceKm: "Distancia em KM"
-             description: "Descrição"
-             situation: "Situação"
-             spent: "Valor Gasto"
-             descriptionSpent: "Descrição dos gastos"
-             numberHead: "Número de cabeça"
-             exitDate: "Data de saída"
-             arrivalDate: "Data de Chegada"
-             paidDrivere: "Motorista pago"
+   models: &models
+      truck: "Caminhão"
+      motorist: Motorista
+      freight: Frete
+      client: Cliente
+      person: Pessoa
+   attributes:
+     truck:
+       board: Placa
+     motorist:
+       name: Nome
+       cpf: CPF
+     client:
+       name: Nome
+       cpf: CPF
+     client:
+       name: Nome
+       cpf: CPF
+     person:
+       name: Nome
+       cpf: CPF
+     freight:
+       truckId: "CaminhãoId"
+       truck: "Caminhão"
+       motorist: Motorista
+       motoristId: MotoristaId
+       client: Cliente
+       clientId: ClienteId
+       origin: Saida
+       destination: Destino
+       valueKm: "Preço do KM"
+       distanceKm: "Distancia em KM"
+       description: "Descrição"
+       situation: "Situação"
+       spent: "Valor Gasto"
+       descriptionSpent: "Descrição dos gastos"
+       numberHead: "Número de cabeça"
+       exitDate: "Data de saída"
+       arrivalDate: "Data de Chegada"
+       paidDrivere: "Motorista pago"
+   errors:
+     models:
+       motorist:
+         attributes:
+           cpf:
+             invalid: "CPF Inválido"
+       client:
+         attributes:
+            cpf:
+              invalid: "CPF Inválido"
+ time:
+   am: ''
+   formats:
+     default: ! '%a: %d de %B de %Y: %H:%M:%S %z'
+     long: ! '%d de %B de %Y: %H:%M'
+     short: ! '%d de %B: %H:%M'
+   pm: ''

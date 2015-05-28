@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150526125614) do
+ActiveRecord::Schema.define(version: 20150528045114) do
 
   create_table "People", force: true do |t|
     t.string   "name"
@@ -70,6 +70,16 @@ ActiveRecord::Schema.define(version: 20150526125614) do
     t.datetime "exitDate"
     t.datetime "arrivalDate"
     t.boolean  "paidDriver"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "transations", force: true do |t|
+    t.string   "objectName"
+    t.integer  "objectId"
+    t.text     "description"
+    t.decimal  "value"
+    t.datetime "dateTransation"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

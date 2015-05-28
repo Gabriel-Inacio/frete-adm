@@ -1,4 +1,4 @@
-//$(window).load(function() {
+$(window).load(function() {
     // CPF
-  //  $("input.cpf").mask("999.999.999-99");
-//});
+  $("input.cpf").mask("999.999.999-99");
+});

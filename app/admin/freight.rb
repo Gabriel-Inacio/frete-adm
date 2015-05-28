@@ -9,4 +9,13 @@ ActiveAdmin.register Freight do
 
   actions :all, :except => [:destroy, :show]
 
+  controller do
+    def create
+      params[:freight][:exitDate] = DateHelper.str_to_date2(params[:freight][:exitDate])
+      params[:freight][:arrivalDate] = DateHelper.str_to_date2(params[:freight][:arrivalDate])
+      binding.pry
+      super
+    end
+  end
+
 end

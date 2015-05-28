@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  objectName: MyString
+  objectId: 1
+  description: MyText
+  value: 9.99
+  dateTransation: 2015-05-28 01:51:14
+
+two:
+  objectName: MyString
+  objectId: 1
+  description: MyText
+  value: 9.99
+  dateTransation: 2015-05-28 01:51:14

@@ -6,9 +6,7 @@ gem 'rails', '4.1.8'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
@@ -33,18 +31,23 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+group :assets do
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'uglifier'
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 gem 'actionpack'
 gem 'activeadmin', github: 'activeadmin'
-gem 'sass-rails'
 gem 'devise'
 gem "formtastic", github: "justinfrench/formtastic"
 gem 'therubyracer', :platform => :ruby
 gem 'pry'
 gem 'protected_attributes'
 gem "select2-rails"
-
-#https://github.com/rfs/validates_cpf_cnpj
-#gem 'validates_cpf_cnpj'
-#gem 'brazilian-rails'
+gem 'brazilian-rails'
+gem 'jquery-turbolinks'
+gem 'maskedinput-rails'
+gem 'jquery-ui-rails'

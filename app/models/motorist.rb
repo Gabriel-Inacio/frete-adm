@@ -8,7 +8,10 @@ class Motorist < Person
 
   attr_accessible :name, :cpf, :type_person, :freights
 
+  validates :cpf, cpf: true, :allow_blank => true
+
   def set_type_person
     self.type_person = 1
   end
+
 end
