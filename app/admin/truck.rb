@@ -8,6 +8,11 @@ ActiveAdmin.register Truck do
 
   actions :all, :except => [:destroy, :show]
 
+  index do
+    column :board
+    column :year
+  end
+
   controller do
 
   end
