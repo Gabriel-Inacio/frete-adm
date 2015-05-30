@@ -5,14 +5,17 @@ pt-BR:
   save: Salvar
   activate: Ativar
   desactive: Desativar
+  report: Relatório
+  paid: Pagar Motorista
 
  activerecord:
    models: &models
-      truck: "Caminhão"
-      motorist: Motorista
-      freight: Frete
-      client: Cliente
-      person: Pessoa
+      truck: "Caminhões"
+      motorist: Motoristas
+      freight: Fretes
+      client: Clientes
+      person: Pessoas
+      transation: Transações
    attributes:
      truck:
        board: Placa
@@ -47,6 +50,10 @@ pt-BR:
        exitDate: "Data de saída"
        arrivalDate: "Data de Chegada"
        paidDrivere: "Motorista pago"
+     transation:
+       description: "Descrição"
+       value: Valor
+       dateTransation: "Data"
    errors:
      models:
        motorist:

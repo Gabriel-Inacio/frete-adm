@@ -55,4 +55,13 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  post 'admin/transations/report' => 'admin/transations#report',
+       :as => :admin_transation_report
+
+  post 'admin/freight/chosen_motorist' => 'admin/freight#chosen_motorist',
+       :as => :admin_freight_chosen_motorist
+
+  post 'admin/freight/paid_motorist' => 'admin/freight#paid_motorist',
+      :as => :admin_freight_paid_motorist
 end

@@ -5,6 +5,10 @@ ActiveAdmin.register Freight do
     link_to(I18n.t('button.return'), admin_freights_path)
   end
 
+  action_item :only => [:index] do
+    link_to(I18n.t('button.report'), admin_freight_paid_motorist_path)
+  end
+
   form :partial => "form"
 
   actions :all, :except => [:destroy, :show]
@@ -38,6 +42,14 @@ ActiveAdmin.register Freight do
       params[:freight][:arrivalDate] = DateHelper.str_to_date2(params[:freight][:arrivalDate])
       binding.pry
       super
+    end
+
+    def chosen_motorist
+
+    end
+
+    def paid_motorist
+
     end
   end
 
