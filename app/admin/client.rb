@@ -8,6 +8,15 @@ ActiveAdmin.register Client do
 
   actions :all, :except => [:destroy, :show]
 
+  index do
+    column :name
+    column :cpf
+    column :phone
+    column "" do |client|
+      link_to "editar", edit_admin_client_path(client)
+    end
+  end
+
   controller do
     def index
       index! do |format|

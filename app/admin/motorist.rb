@@ -8,6 +8,15 @@ ActiveAdmin.register Motorist do
 
   actions :all, :except => [:destroy, :show]
 
+  index do
+    column :name
+    column :cpf
+    column :phone
+    column "" do |motorist|
+      link_to "editar", edit_admin_motorist_path(motorist)
+    end
+  end
+
   controller do
     def index
       index! do |format|

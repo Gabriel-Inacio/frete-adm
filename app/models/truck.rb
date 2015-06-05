@@ -4,6 +4,6 @@ class Truck < ActiveRecord::Base
 
   accepts_nested_attributes_for :freights
 
-  attr_accessible :board, :year, :axes, :freights
+  attr_accessible :board, :year, :axes, :freights, :truckId
 
 end

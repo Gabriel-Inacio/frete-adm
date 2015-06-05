@@ -6,7 +6,7 @@ class Client < Person
 
   accepts_nested_attributes_for :freights
 
-  attr_accessible :name, :cpf, :type_person, :freights
+  attr_accessible :name, :cpf, :type_person, :freights, :phone
 
   def set_type_person
     self.type_person = 2

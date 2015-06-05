@@ -6,8 +6,16 @@ module StatusHelper
       1 => "Recebido"
   }
 
+  SITUATION_OPTIONS = [
+      OpenStruct.new( :id => 0, :name => 'A receber'),
+      OpenStruct.new( :id => 1, :name => 'Recebido')
+  ]
+
   PAID_DRIVER = {
       0 => "Não",
-      1 => "sim"
+      1 => "sim",
+      nil => "Não",
+      false => "Não",
+      true => "Sim"
   }
 end

@@ -22,15 +22,15 @@ pt-BR:
      motorist:
        name: Nome
        cpf: CPF
+       phone: Telefone
      client:
        name: Nome
        cpf: CPF
-     client:
-       name: Nome
-       cpf: CPF
+       phone: Telefone
      person:
        name: Nome
        cpf: CPF
+       phone: Telefone
      freight:
        truckId: "CaminhãoId"
        truck: "Caminhão"
@@ -49,7 +49,7 @@ pt-BR:
        numberHead: "Número de cabeça"
        exitDate: "Data de saída"
        arrivalDate: "Data de Chegada"
-       paidDrivere: "Motorista pago"
+       paidDriver: "Motorista pago"
      transation:
        description: "Descrição"
        value: Valor

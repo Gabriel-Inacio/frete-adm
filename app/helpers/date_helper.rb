@@ -14,7 +14,7 @@ module DateHelper
   end
 
   def self.format_date2(date)
-   binding.pry
+
   end
 
   def self.format_date(date, format = "%d/%m/%Y")

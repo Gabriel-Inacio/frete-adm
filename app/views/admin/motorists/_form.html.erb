@@ -3,6 +3,7 @@
     <%= f.inputs do %>
         <%= f.input :name, input_html: { class: "campo20" } %>
         <%= f.input :cpf, input_html: { class: "cpf campo10" } %>
+        <%= f.input :phone, input_html: { class: "cpf campo10" } %>
     <% end %>
     <%= f.actions %>
 
@@ -28,8 +29,8 @@
                 <td><%= freight.destination %></td>
                 <td><%= DateHelper.format_date(freight.exitDate) %></td>
                 <td><%= DateHelper.format_date(freight.arrivalDate) %></td>
-                <td><%= status_tag(StatusHelper::PAID_DRIVER[freight.paidDriver],(freight.paidDriver == 0 ? :warning : :ok)) %></td>
-                <td><% link_to "edit", edit_admin_freight_path(freight) %></td>
+                <td><%= StatusHelper::PAID_DRIVER[freight.paidDriver] %></td>
+                <td><%= link_to "edit", edit_admin_freight_path(freight) %></td>
               </tr>
           <% end %>
           </tbody>

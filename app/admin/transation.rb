@@ -13,7 +13,9 @@ ActiveAdmin.register Transation do
   actions :all, :except => [:destroy, :new, :edit]
 
   index do
-    column :description
+    column :truck do |transation|
+      transation.truck.board if transation.truck.present?
+    end
     column :value
     column :dateTransation do |transation|
         DateHelper.format_date(transation.dateTransation)

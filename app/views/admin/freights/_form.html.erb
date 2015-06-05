@@ -10,13 +10,24 @@
         <%= f.input :distanceKm, input_html: { class: "campo20" } %>
         <%= f.input :description, as: :text, input_html: { class: "campo20", rows: 5,
                                                            onkeyup: "maxLengthText(this);", maxlength: "1000" }, :hint=> "<span id=\"contador\"></span>".html_safe %>
-        <%= f.input :situation, input_html: { class: "campo20" } %>
-        <%= f.input :spent, input_html: { class: "campo20" } %>
+        <% if f.object.situation == 1 %>
+            <%= f.input :situation, :as => :string, input_html: { class: "input-non-edit campo10", :readonly => true, :value => StatusHelper::SITUATION[f.object.situation]} %>
+        <% else %>
+            <%= f.input :situation,  :as => :select, :collection => StatusHelper::SITUATION_OPTIONS, :selected => 0 %>
+        <% end %>
+        <% if f.object.new_record? %>
+            <%= f.input :spent, input_html: { class: "campo20" } %>
+        <% else %>
+            <%= f.input :spent, input_html: { class: "campo20 input-non-edit", :readonly => true } %>
+        <% end %>
         <%= f.input :descriptionSpent, input_html: { class: "campo20", rows: 5,
                                                      onkeyup: "maxLengthText(this);", maxlength: "1000" }, :hint=> "<span id=\"contador\"></span>".html_safe %>
         <%= f.input :numberHead, input_html: { class: "campo20" } %>
-        <%= f.input :exitDate, :as => :string, :input_html => {class: "campo10 input_date_picker", value: DateHelper.format_date2(f.object.exitDate)}  %>
-        <%= f.input :arrivalDate, :as => :string, :input_html => {class: "campo10 input_date_picker", value: DateHelper.format_date2(f.object.arrivalDate)}  %>
+        <%= f.input :exitDate, :as => :string, :input_html => {class: "campo10 input_date_picker", value: DateHelper.format_date(f.object.exitDate)}  %>
+        <%= f.input :arrivalDate, :as => :string, :input_html => {class: "campo10 input_date_picker", value: DateHelper.format_date(f.object.arrivalDate)}  %>
+        <% unless f.object.new_record? %>
+            <%= f.input :paidDriver, :as => :string, input_html: { class: "input-non-edit campo10", :readonly => true, :value => StatusHelper::PAID_DRIVER[f.object.paidDriver] } %>
+        <% end %>
     <% end %>
     <%= f.actions %>
 <% end %>

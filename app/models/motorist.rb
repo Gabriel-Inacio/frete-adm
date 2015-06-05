@@ -6,7 +6,7 @@ class Motorist < Person
 
   accepts_nested_attributes_for :freights
 
-  attr_accessible :name, :cpf, :type_person, :freights
+  attr_accessible :name, :cpf, :type_person, :freights, :phone
 
   validates :cpf, cpf: true, :allow_blank => true
 

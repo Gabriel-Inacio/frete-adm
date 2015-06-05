@@ -1,12 +1,12 @@
 ActiveAdmin.register Freight do
 
 
-  action_item :only => [:edit, :new, :create, :update] do
-    link_to(I18n.t('button.return'), admin_freights_path)
-  end
-
   action_item :only => [:index] do
     link_to(I18n.t('button.report'), admin_freight_paid_motorist_path)
+  end
+
+  action_item :only => [:edit, :new, :create, :update] do
+    link_to(I18n.t('button.return'), admin_freights_path)
   end
 
   form :partial => "form"
@@ -34,13 +34,21 @@ ActiveAdmin.register Freight do
     column :paidDriver do |freight|
       status_tag(StatusHelper::PAID_DRIVER[freight.paidDriver],(freight.paidDriver == 0 ? :warning : :ok))
     end
+    column "" do |freight|
+      link_to "editar", edit_admin_freight_path(freight)
+    end
   end
 
   controller do
     def create
       params[:freight][:exitDate] = DateHelper.str_to_date2(params[:freight][:exitDate])
       params[:freight][:arrivalDate] = DateHelper.str_to_date2(params[:freight][:arrivalDate])
-      binding.pry
+      super
+    end
+
+    def update
+      arrivalDate = Date.parse(params[:freight][:arrivalDate])
+      exitDate = Date.parse(params[:freight][:exitDate])
       super
     end
 
