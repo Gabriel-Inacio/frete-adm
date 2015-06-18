@@ -1,10 +1,5 @@
 ActiveAdmin.register Freight do
 
-
-  action_item :only => [:index] do
-    link_to(I18n.t('button.report'), admin_freight_paid_motorist_path)
-  end
-
   action_item :only => [:edit, :new, :create, :update] do
     link_to(I18n.t('button.return'), admin_freights_path)
   end
@@ -18,7 +13,7 @@ ActiveAdmin.register Freight do
       link_to freight.client.name, edit_admin_client_path(freight.truck)
     end
     column :motorist do |freight|
-      link_to freight.motorist.name, edit_admin_motorist_path(freight.truck)
+      link_to freight.motorist.name, edit_admin_motorist_path(freight.motorist)
     end
     column :origin
     column :destination
@@ -52,13 +47,6 @@ ActiveAdmin.register Freight do
       super
     end
 
-    def chosen_motorist
-
-    end
-
-    def paid_motorist
-
-    end
   end
 
 end

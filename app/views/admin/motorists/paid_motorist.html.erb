@@ -1,0 +1,42 @@
+<%= semantic_form_for @motorist, :url => admin_motorist_paid_step_2_path, :method => :post,
+                      :html => { :target => :_blank } do |f| %>
+    <%= f.inputs do %>
+        <%= f.input :id, input_html: { class: 'campo10', value: @motorist.id },  as: :hidden %>
+        <%= f.input :salary, input_html: { class: 'campo10' } %>
+        <%= f.input :percentage, :input_html => {class: "campo10"} %>
+        <%= f.input :value_total_freight, :input_html => { class: "input-non-edit campo10", :readonly => true, value: @value_total } %>
+        <%= f.input :total, :input_html => { class: "input-non-edit campo10", :readonly => true} %>
+
+        <%= f.actions do %>
+            <%= f.action :submit, :label => I18n.t('button.paid_confirm') %>
+        <% end %>
+    <% end %>
+
+    <table class="index_table">
+      <thead>
+      <tr>
+        <th>Cliente</th>
+        <th>Origem</th>
+        <th>Destino</th>
+        <th>Data de Saida</th>
+        <th>Data de Chegada</th>
+        <th>Valor do frete</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @freights.each do |freight| %>
+          <tr>
+            <td><%= link_to freight.client.name, edit_admin_client_path(freight.client) %></td>
+            <td><%= freight.origin %></td>
+            <td><%= freight.destination %></td>
+            <td><%= DateHelper.format_date(freight.exitDate) %></td>
+            <td><%= DateHelper.format_date(freight.arrivalDate) %></td>
+            <td><%= (freight.valueKm * freight.distanceKm) %></td>
+            <td><%= link_to "editar", edit_admin_freight_path(freight.id) %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+<% end %>

@@ -6,7 +6,8 @@ pt-BR:
   activate: Ativar
   desactive: Desativar
   report: Relatório
-  paid: Pagar Motorista
+  paid_confirm: Finalizar pagamento
+  paid_motorist: Pagar Motorista
 
  activerecord:
    models: &models
@@ -23,6 +24,10 @@ pt-BR:
        name: Nome
        cpf: CPF
        phone: Telefone
+       salary: Salário
+       percentage: Porcentagem
+       total: Total
+       value_total_freight: "Valor dos Fretes"
      client:
        name: Nome
        cpf: CPF

@@ -22,4 +22,5 @@
 //= require common.js
 //= require maskedinput
 //= require jquery-ui
+//= require motorist.js
 

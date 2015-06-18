@@ -10,22 +10,24 @@ ActiveAdmin.register Transation do
 
   form :partial => "form"
 
-  actions :all, :except => [:destroy, :new, :edit]
+  actions :all, :except => [:destroy]
 
   index do
-    column :truck do |transation|
-      transation.truck.board if transation.truck.present?
+    column "referente ao" do  |transation|
+      if transation.objectName == "Freight"
+        link_to "frete", edit_admin_freight_path(transation.objectId)
+      end
     end
     column :value
+    column :description
     column :dateTransation do |transation|
-        DateHelper.format_date(transation.dateTransation)
+      DateHelper.format_date transation.dateTransation
     end
   end
-
   controller do
 
     def report
-
+      binding.pry
     end
   end
 

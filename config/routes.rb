@@ -59,9 +59,13 @@ Rails.application.routes.draw do
   post 'admin/transations/report' => 'admin/transations#report',
        :as => :admin_transation_report
 
-  post 'admin/freight/chosen_motorist' => 'admin/freight#chosen_motorist',
-       :as => :admin_freight_chosen_motorist
 
-  post 'admin/freight/paid_motorist' => 'admin/freight#paid_motorist',
-      :as => :admin_freight_paid_motorist
+
+  get  'admin/motorists/paid_motorist' => 'admin/motorists#paid_motorist',
+        :as => :admin_motorist_paid
+
+  post  'admin/motorists/paid_motorist_step_2' => 'admin/motorists#paid_motorist_step_2',
+       :as => :admin_motorist_paid_step_2
+
+
 end

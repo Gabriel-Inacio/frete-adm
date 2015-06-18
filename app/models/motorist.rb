@@ -6,7 +6,9 @@ class Motorist < Person
 
   accepts_nested_attributes_for :freights
 
-  attr_accessible :name, :cpf, :type_person, :freights, :phone
+  attr_accessor :percentage, :salary, :total, :value_total_freight
+
+  attr_accessible :name, :cpf, :type_person, :freights, :phone, :salary, :percentage, :total, :value_total_freight
 
   validates :cpf, cpf: true, :allow_blank => true
 

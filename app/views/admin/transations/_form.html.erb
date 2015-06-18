@@ -1,0 +1,10 @@
+<%= semantic_form_for [:admin, @transation] do |f| %>
+
+    <%= f.inputs do %>
+        <%= f.input :truck, :as => :select, :collection => Truck.all.map{|b| [b.board,b.id]} %>
+        <%= f.input :value, input_html: { class: "campo10" } %>
+        <%= f.input :description, as: :text, input_html: { class: "campo20", rows: 5,
+                                                           onkeyup: "maxLengthText(this);", maxlength: "1000" }, :hint=> "<span id=\"contador\"></span>".html_safe %>
+    <% end %>
+<%= f.actions %>
+<% end %>

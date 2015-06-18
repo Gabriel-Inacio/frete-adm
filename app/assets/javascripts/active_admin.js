@@ -6,3 +6,4 @@
 //= require lib/masks.js
 //= require maskedinput
 //= require jquery-ui
+//= require motorist.js

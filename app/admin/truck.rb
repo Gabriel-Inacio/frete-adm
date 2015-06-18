@@ -11,6 +11,9 @@ ActiveAdmin.register Truck do
   index do
     column :board
     column :year
+    column "" do  |truck|
+      link_to "edit", edit_admin_truck_path(truck)
+    end
   end
 
   controller do
