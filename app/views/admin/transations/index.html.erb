@@ -1,0 +1,11 @@
+<%= semantic_form_for @transation, :url => transation_reports_path, :method => :post,
+                      :html => { :target => :_blank } do |f| %>
+    <%= f.inputs do %>
+        <%= f.input :start_date, :as => :string, :input_html => {class: "campo10 input_date_picker", value: DateHelper.format_date(f.object.start_date)}, :label => 'Data início' %>
+        <%= f.input :end_date, :as => :string, :input_html => {class: "campo10 input_date_picker", value: DateHelper.format_date(f.object.end_date)}, :label => 'Data fim' %>
+
+        <%= f.actions do %>
+            <%= f.action :submit, :label => I18n.t('button.run_report') %>
+        <% end %>
+    <% end %>
+<% end %>

@@ -26,9 +26,9 @@ ActiveAdmin.register Transation do
   end
   controller do
 
-    def report
+    def get_report
       binding.pry
+      render "admin/transations/report"
     end
   end
-
 end

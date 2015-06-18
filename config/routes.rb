@@ -60,6 +60,8 @@ Rails.application.routes.draw do
        :as => :admin_transation_report
 
 
+  post 'admin/transations/get_report' => 'admin/transations#get_report',
+       :as => :transation_reports
 
   get  'admin/motorists/paid_motorist' => 'admin/motorists#paid_motorist',
         :as => :admin_motorist_paid

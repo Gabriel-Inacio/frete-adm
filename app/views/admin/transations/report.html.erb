@@ -1,0 +1,41 @@
+<br clear="all">
+<h3>Relatório Geral Empresas</h3>
+<table class="index_table campo70">
+
+  <thead>
+  <tr>
+    <th>Data</th>
+    <th>caminhão</th>
+    <th>Descrição</th>
+    <th>Valor</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @transations.each do |transation| %>
+      <tr>
+        <td><%= transation["dateTransation"] %></td>
+        <td><%= transation["truck"] %></td>
+        <td><%= transation["description"] %></td>
+        <td><%= transation["value"] %></td>
+      </tr>
+  <% end %>
+  </tbody>
+
+  <thead>
+  <tr>
+    <th>Entrada</th>
+    <th>Saida</th>
+    <th>Liquido</th>
+  </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td><%= transation["dateTransation"] %></td>
+        <td><%= transation["truck"] %></td>
+        <td><%= transation["description"] %></td>
+      </tr>
+  </tbody>
+
+</table>
