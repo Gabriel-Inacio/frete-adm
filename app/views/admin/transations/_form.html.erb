@@ -2,7 +2,7 @@
 
     <%= f.inputs do %>
         <%= f.input :truck, :as => :select, :collection => Truck.all.map{|b| [b.board,b.id]} %>
-        <%= f.input :value, input_html: { class: "campo10" } %>
+        <%= f.input :value, input_html: { class: "campo10 money", :"data-thousands" => "", :"data-decimal" => ".", :"data-prefix" => "" }  %>
         <%= f.input :description, as: :text, input_html: { class: "campo20", rows: 5,
                                                            onkeyup: "maxLengthText(this);", maxlength: "1000" }, :hint=> "<span id=\"contador\"></span>".html_safe %>
     <% end %>
