@@ -14,7 +14,7 @@ class Freight < ActiveRecord::Base
 
   validates :truckId, :motoristId, :clientId, :presence => true
 
-  validates :spent, :numericality => { :less_than_or_equal_to => 0 }
+  validates :spent, :numericality => { :greater_than_or_equal_to => 0 }
 
   after_update :save_transation
 

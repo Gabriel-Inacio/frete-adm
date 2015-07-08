@@ -1,5 +1,5 @@
 <br clear="all">
-<h3>Relatório Geral Empresas</h3>
+<h3>Relatório Geral Transações</h3>
 <table class="index_table campo70">
 
   <thead>
@@ -7,21 +7,27 @@
     <th>Data</th>
     <th>caminhão</th>
     <th>Descrição</th>
+    <th>Tipo<th>
     <th>Valor</th>
   </tr>
   </thead>
 
   <tbody>
-  <% @transations.each do |transation| %>
-      <tr>
-        <td><%= transation["dateTransation"] %></td>
-        <td><%= transation["truck"] %></td>
-        <td><%= transation["description"] %></td>
-        <td><%= transation["value"] %></td>
-      </tr>
-  <% end %>
+    <% if @transation.present? %>
+      <% @transations.each do |transation| %>
+          <tr>
+            <td><%= transation["dateTransation"] %></td>
+            <td><%= transation["truck"] %></td>
+            <td><%= transation["description"] %></td>
+            <td>><%= transation.["type"] ? "Entrada" : "Saida" %>
+            <td><%= transation["value"] %></td>
+          </tr>
+      <% end %>
+    <% end %>
   </tbody>
+</table>
 
+<table class="index_table campo70">
   <thead>
   <tr>
     <th>Entrada</th>
@@ -32,9 +38,9 @@
 
   <tbody>
       <tr>
-        <td><%= transation["dateTransation"] %></td>
-        <td><%= transation["truck"] %></td>
-        <td><%= transation["description"] %></td>
+        <td><%= @in %></td>
+        <td><%= @out %></td>
+        <td><%= @liquid %></td>
       </tr>
   </tbody>
 

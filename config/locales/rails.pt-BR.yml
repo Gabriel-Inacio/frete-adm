@@ -6,6 +6,7 @@ pt-BR:
   activate: Ativar
   desactive: Desativar
   report: Relatório
+  run_report: Gerar Relatório
   paid_confirm: Finalizar pagamento
   paid_motorist: Pagar Motorista
 

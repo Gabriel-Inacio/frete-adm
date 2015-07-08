@@ -46,7 +46,7 @@ ActiveAdmin.register Motorist do
         freight.paidDriver = true
         freight.save
       end
-      Transation.new( :value => (params[:motorist][:total].to_f  *  -1), :objectId => @motorist.id, :objectName => @motorist.class.name, :dateTransation => Date.today, :description => "Pagamento do motorista #{@motorist.name}").save
+      Transation.new( :value => (params[:motorist][:total].to_f), :objectId => @motorist.id, :objectName => @motorist.class.name, :dateTransation => Date.today, :description => "Pagamento do motorista #{@motorist.name}", :type => false).save
       redirect_to action: :edit,  id: @motorist.id
     end
   end
