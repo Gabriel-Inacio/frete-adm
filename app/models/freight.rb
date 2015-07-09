@@ -23,14 +23,14 @@ class Freight < ActiveRecord::Base
 
   def save_transation
     if ( self.situation_changed?)
-      Transation.new(:truckId => self.truckId, :value => (self.valueKm * self.distanceKm), :objectId => self.id, :objectName => self.class.name, :dateTransation => Date.today, :description => "Recebendo o frete").save
+      Transation.new(:truckId => self.truckId, :value => (self.valueKm * self.distanceKm), :objectId => self.id, :objectName => self.class.name, :dateTransation => Date.today, :description => "Recebendo o frete", :type_transation => true).save
     end
   end
 
   def save_transation_freigh_value
-    Transation.new(:truckId => self.truckId, :value => self.spent, :objectId => self.id, :objectName => self.class.name, :dateTransation => Date.today, :description => "Gasto com frete").save
+    Transation.new(:truckId => self.truckId, :value => self.spent, :objectId => self.id, :objectName => self.class.name, :dateTransation => Date.today, :description => "Gasto com frete", :type_transation => false).save
     if (self.situation == true)
-      Transation.new(:truckId => self.truckId, :value => (self.valueKm * self.distanceKm), :objectId => self.id, :objectName => self.class.name, :dateTransation => Date.today, :description => "Recebendo o frete").save
+      Transation.new(:truckId => self.truckId, :value => (self.valueKm * self.distanceKm), :objectId => self.id, :objectName => self.class.name, :dateTransation => Date.today, :description => "Recebendo o frete", :type_transation => false).save
     end
   end
 

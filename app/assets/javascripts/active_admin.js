@@ -1,9 +1,10 @@
-//= require jquery.js
+//= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require maskedinput
+//= require lib/masks.js
+//= require_tree ./lib
 //= require util.js
 //= require common.js
-//= require lib/masks.js
-//= require maskedinput
 //= require jquery-ui
 //= require motorist.js

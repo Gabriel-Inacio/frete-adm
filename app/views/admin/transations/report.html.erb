@@ -7,19 +7,19 @@
     <th>Data</th>
     <th>caminhão</th>
     <th>Descrição</th>
-    <th>Tipo<th>
+    <th>Tipo</th>
     <th>Valor</th>
   </tr>
   </thead>
 
   <tbody>
-    <% if @transation.present? %>
+    <% if @transations.present? %>
       <% @transations.each do |transation| %>
           <tr>
-            <td><%= transation["dateTransation"] %></td>
-            <td><%= transation["truck"] %></td>
+            <td><%= DateHelper.format_date(transation["dateTransation"]) %></td>
+            <td><%= transation.truck.board if transation.truck.present? %></td>
             <td><%= transation["description"] %></td>
-            <td>><%= transation.["type"] ? "Entrada" : "Saida" %>
+            <td><%= (transation["type_transation"] ? "Entrada" : "Saida") %>
             <td><%= transation["value"] %></td>
           </tr>
       <% end %>

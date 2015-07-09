@@ -4,7 +4,7 @@ class Transation < ActiveRecord::Base
 
   attr_accessor :start_date, :end_date
 
-  attr_accessible :objectName, :objectId, :description, :value, :dateTransation,  :truck, :truckId,  :start_date, :end_date, :type
+  attr_accessible :objectName, :objectId, :description, :value, :dateTransation,  :truck, :truckId,  :start_date, :end_date, :type_transation
 
   accepts_nested_attributes_for :truck
 

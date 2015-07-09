@@ -16,6 +16,8 @@ ActiveAdmin.register Transation do
     column "referente ao" do  |transation|
       if transation.objectName == "Freight"
         link_to "frete", edit_admin_freight_path(transation.objectId)
+      elsif transation.objectName == "Spent"
+        link_to "gasto", edit_admin_spent_path(transation.objectId)
       end
     end
     column :value
@@ -39,10 +41,10 @@ ActiveAdmin.register Transation do
       params[:start_date] = "01/01/2000" if params[:start_date].nil?
       params[:end_date] = "01/01/3000" if params[:end_date].nil?
       @transations = Transation.where(:dateTransation => params[:start_date].to_date..params[:end_date].to_date)
-      in_transation = @transations.where(:type => true) if @transations.present?
-      out_transation = @transations.where(:type => false) if @transations.present?
-      in_transation.present? ? @in = in_transation.sum(&:value) : @in = 0
-      out_transation.present? ? @out = out_transation.sum(&:value) : @out = 0
+      in_transation = @transations.where(:type_transation => true) if @transations.present?
+      out_transation = @transations.where(:type_transation => false) if @transations.present?
+      in_transation.present? ? @in = in_transation.sum(:value).to_i : @in = 0
+      out_transation.present? ? @out = out_transation.sum(:value).to_i : @out = 0
       @liquid = @in - @out
 
       render "admin/transations/report"

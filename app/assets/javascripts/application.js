@@ -16,11 +16,12 @@
 //= require turbolinks
 //= require_tree .
 //= require select2
-//= require_tree ./lib
+//= require maskedinput
 //= require lib/masks.js
+//= require_tree ./lib
 //= require util.js
 //= require common.js
-//= require maskedinput
 //= require jquery-ui
 //= require motorist.js
+
 

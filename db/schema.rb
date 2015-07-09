@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150708015355) do
+ActiveRecord::Schema.define(version: 20150709031913) do
 
   create_table "People", force: true do |t|
     t.string   "name"
@@ -75,15 +75,25 @@ ActiveRecord::Schema.define(version: 20150708015355) do
     t.datetime "updated_at"
   end
 
+  create_table "spents", force: true do |t|
+    t.date     "date_spent"
+    t.text     "description"
+    t.decimal  "value"
+    t.integer  "truck_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "transations", force: true do |t|
     t.string   "objectName"
     t.integer  "objectId"
     t.text     "description"
     t.decimal  "value"
-    t.datetime "dateTransation"
+    t.date     "dateTransation"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "truckId"
+    t.boolean  "type_transation"
   end
 
   create_table "trucks", force: true do |t|
