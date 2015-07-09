@@ -41,6 +41,7 @@ ActiveAdmin.register Transation do
       params[:start_date] = "01/01/2000" if params[:start_date].nil?
       params[:end_date] = "01/01/3000" if params[:end_date].nil?
       @transations = Transation.where(:dateTransation => params[:start_date].to_date..params[:end_date].to_date)
+      @transations = @transations.where(:truck_id => params[:truck_chosen]) if params[:truck_chosen].present?
       in_transation = @transations.where(:type_transation => true) if @transations.present?
       out_transation = @transations.where(:type_transation => false) if @transations.present?
       in_transation.present? ? @in = in_transation.sum(:value).to_i : @in = 0

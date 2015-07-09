@@ -1,6 +1,7 @@
 <%= semantic_form_for @transation, :url => transation_reports_path, :method => :post,
                       :html => { :target => :_blank } do |f| %>
     <%= f.inputs do %>
+    	<%= f.input :truck_chosen, :as => :select, :collection => Truck.all.map{|b| [b.board,b.id]} %>
         <%= f.input :start_date, :as => :string, :input_html => {class: "campo10 input_date_picker", value: DateHelper.format_date(f.object.start_date)}, :label => 'Data início' %>
         <%= f.input :end_date, :as => :string, :input_html => {class: "campo10 input_date_picker", value: DateHelper.format_date(f.object.end_date)}, :label => 'Data fim' %>
 

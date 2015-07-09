@@ -1,4 +1,8 @@
 pt-BR:
+ devise:
+  sessions:
+    admin_user:
+      signed_in: Login realizado com sucesso
  button:
   new: Novo(a) %{model}
   return: Voltar
