@@ -8,6 +8,10 @@ class Client < Person
 
   attr_accessible :name, :cpf, :type_person, :freights, :phone
 
+  validates :name, :presence => true
+
+  validates :cpf, cpf: true, :allow_blank => true
+
   def set_type_person
     self.type_person = 2
   end

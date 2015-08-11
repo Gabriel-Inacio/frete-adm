@@ -26,6 +26,8 @@ pt-BR:
    attributes:
      truck:
        board: Placa
+       year: Ano
+       axes: Eixos
      motorist:
        name: Nome
        cpf: CPF
@@ -65,6 +67,8 @@ pt-BR:
        description: "Descrição"
        value: Valor
        dateTransation: "Data"
+       truck: "Caminhão"
+       truck_chosen: "Caminhão"
      spent:
        description: "Descrição"
        value: Valor

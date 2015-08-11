@@ -6,8 +6,8 @@
         <%= f.input :truck, :as => :select, :collection => Truck.all.map{|b| [b.board,b.id]} %>
         <%= f.input :origin, input_html: { class: "campo20" } %>
         <%= f.input :destination, input_html: { class: "campo20" } %>
-        <%= f.input :valueKm, input_html: { class: "campo20" } %>
-        <%= f.input :distanceKm, input_html: { class: "campo20" } %>
+        <%= f.input :valueKm, as: :string, input_html: { onkeypress: "return isFloatKey(this,event)", class: "campo20" } %>
+        <%= f.input :distanceKm, as: :string, input_html: { onkeypress: "return isFloatKey(this,event)", class: "campo20"  } %>
         <%= f.input :description, as: :text, input_html: { class: "campo20", rows: 5,
                                                            onkeyup: "maxLengthText(this);", maxlength: "1000" }, :hint=> "<span id=\"contador\"></span>".html_safe %>
         <% if f.object.situation == 1 %>

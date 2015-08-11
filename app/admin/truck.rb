@@ -9,11 +9,10 @@ ActiveAdmin.register Truck do
   actions :all, :except => [:destroy, :show]
 
   index do
-    column :board
-    column :year
-    column "" do  |truck|
-      link_to "edit", edit_admin_truck_path(truck)
+    column :board do |truck|
+      link_to :board, edit_admin_truck_path(truck)
     end
+    column :year
   end
 
   controller do

@@ -15,6 +15,9 @@ function isFloatKey(sender, evt) {
         keyChar = String.fromCharCode(e.which);
     else
         return true;
+
+    if (keyChar == ",")
+        return false;
     var val = (sender.value + keyChar).replace(/,/, '.');
     var number = parseFloat(val);
     if (number != val && val != '-')
@@ -26,6 +29,6 @@ $(window).load(function() {
     // CPF
     $("input.cpf").mask("999.999.999-99");
 
- 
+    $("input.phone").mask("(99) 9999-9999?9")
 
 });
