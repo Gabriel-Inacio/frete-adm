@@ -15,7 +15,7 @@ ActiveAdmin.register Spent do
     column :value
     column :description
     column :date_spent do |spent|
-      DateHelper.format_date spent.date_spent
+      DateHelper.format_date(spent.date_spent)
     end
     actions
   end
@@ -23,7 +23,11 @@ ActiveAdmin.register Spent do
   
   controller do
 
-  
+    def create
+      params[:spent][:date_spent] = DateHelper.str_to_date2(params[:spent][:date_spent])
+      super
+    end
+
   end
 
 end

@@ -35,9 +35,11 @@ ActiveAdmin.register Freight do
   end
 
   controller do
+
     def create
-      params[:freight][:exitDate] = DateHelper.str_to_date2(params[:freight][:exitDate])
-      params[:freight][:arrivalDate] = DateHelper.str_to_date2(params[:freight][:arrivalDate])
+      params[:freight][:exitDate] = DateHelper.str_to_date2(params[:freight][:exitDate]) if params[:freight][:exitDate].present?
+      params[:freight][:arrivalDate] = DateHelper.str_to_date2(params[:freight][:arrivalDate]) if params[:freight][:exitDate].present?
+      params[:freight][:paidDriver] = false
       super
     end
 

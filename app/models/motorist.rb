@@ -12,6 +12,8 @@ class Motorist < Person
 
   validates :cpf, cpf: true, :allow_blank => true
 
+  validates :cpf, :uniqueness => { :allow_blank => true}
+
   def set_type_person
     self.type_person = 1
   end

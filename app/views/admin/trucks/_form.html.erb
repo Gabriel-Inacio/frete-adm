@@ -1,8 +1,8 @@
 <%= semantic_form_for [:admin, @truck] do |f| %>
 
     <%= f.inputs do %>
-        <%= f.input :board %>
-        <%= f.input :year %>
+        <%= f.input :board, input_html: { class: "campo20" } %>
+        <%= f.input :year, as: :string, input_html: { onkeypress: "return isIntegerKey(this,event)", class: "campo20" } %>
     <% end %>
     <%= f.actions %>
 

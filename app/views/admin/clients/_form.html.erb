@@ -29,8 +29,8 @@
                 <td><%= freight.destination %></td>
                 <td><%= DateHelper.format_date(freight.exitDate) %></td>
                 <td><%= DateHelper.format_date(freight.arrivalDate) %></td>
-                <td><%= freight.situation %> </td>
-                <td><%= link_to "edit", edit_admin_freight_path(freight) %></td>
+                <td><%= StatusHelper::SITUATION[freight.situation] %> </td>
+                <td><%= link_to "editar", edit_admin_freight_path(freight) %></td>
               </tr>
           <% end %>
           </tbody>

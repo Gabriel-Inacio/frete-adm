@@ -10,7 +10,7 @@ module DateHelper
   end
 
   def self.str_to_date2(date)
-    Date.strptime("10/15/2013", "%m/%d/%Y")
+    Date.strptime(date, "%m/%d/%Y")
   end
 
   def self.format_date2(date)

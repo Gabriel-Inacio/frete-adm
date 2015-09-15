@@ -1,6 +1,6 @@
 ActiveAdmin.register Motorist do
 
-  action_item :only => [:edit, :new, :create, :update] do
+  action_item :only => [:edit, :new, :create, :update, :paid_motorist] do
     link_to(I18n.t('button.return'), admin_motorists_path)
   end
 
@@ -13,11 +13,13 @@ ActiveAdmin.register Motorist do
   actions :all, :except => [:destroy, :show]
 
   index do
-    column :name
+    column :name do |motorist|
+      link_to motorist.name, edit_admin_motorist_path(motorist)
+    end
     column :cpf
     column :phone
     column "" do |motorist|
-      link_to "editar", edit_admin_motorist_path(motorist)
+      link_to(I18n.t('button.paid_motorist'),admin_motorist_paid_path(:id => motorist.id))
     end
   end
 
