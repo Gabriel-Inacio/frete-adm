@@ -10,7 +10,7 @@ ActiveAdmin.register Transation do
 
   form :partial => "form"
 
-  actions :all, :except => [:destroy]
+  actions :all, :except => [:create, :new, :destroy]
 
   index do
     column "referente ao" do  |transation|

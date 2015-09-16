@@ -24,6 +24,8 @@
             <td><%= transation["value"] %></td>
             <% if transation["objectName"] == "Freight" %>
                 <td><%= link_to "frete", edit_admin_freight_path(transation["objectId"]) %></td>
+            <% elsif transation["objectName"] == "Motorist" %>
+                <td><%= link_to "motorista", edit_admin_motorist_path(transation["objectId"]) %></td>
             <% else %>
                 <td></td>
             <% end %>
