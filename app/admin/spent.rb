@@ -24,7 +24,7 @@ ActiveAdmin.register Spent do
   controller do
 
     def create
-      params[:spent][:date_spent] = DateHelper.str_to_date2(params[:spent][:date_spent])
+      params[:spent][:date_spent] = DateHelper.str_to_date2(params[:spent][:date_spent]) if params[:spent][:date_spent].present?
       super
     end
 

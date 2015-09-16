@@ -1,6 +1,7 @@
 <%= semantic_form_for @motorist, :url => admin_motorist_paid_step_2_path, :method => :post,
                       :html => { :target => :_blank } do |f| %>
     <%= f.inputs do %>
+        <%= f.input :truckId, :as => :select, :collection => Truck.all.map{|b| [b.board,b.id]} %>
         <%= f.input :id, input_html: { class: 'campo10', value: @motorist.id },  as: :hidden %>
         <%= f.input :salary, input_html: { class: 'campo10' } %>
         <%= f.input :percentage, :input_html => {class: "campo10"} %>

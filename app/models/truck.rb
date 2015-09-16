@@ -6,4 +6,6 @@ class Truck < ActiveRecord::Base
 
   attr_accessible :board, :year, :axes, :freights, :truckId
 
+  validates :board, :presence => true
+
 end

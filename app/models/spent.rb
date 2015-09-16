@@ -4,7 +4,7 @@ class Spent < ActiveRecord::Base
 
 	attr_accessible :date_spent, :description, :value, :truck, :truck_id
 
-	validates :truck_id, :presence => true
+	validates :truck_id, :date_spent, :value, :presence => true
 
 	after_create :save_transation
 

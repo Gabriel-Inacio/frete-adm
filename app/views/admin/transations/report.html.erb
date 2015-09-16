@@ -9,6 +9,7 @@
     <th>Descrição</th>
     <th>Tipo</th>
     <th>Valor</th>
+    <th>Referente ao</th>
   </tr>
   </thead>
 
@@ -21,6 +22,9 @@
             <td><%= transation["description"] %></td>
             <td><%= (transation["type_transation"] ? "Entrada" : "Saida") %>
             <td><%= transation["value"] %></td>
+            <% if transation["objectName"] == "Freight" %>
+                <td><%= link_to "frete", edit_admin_freight_path(transation["objectId"]) %></td>
+            <% end %>
           </tr>
       <% end %>
     <% end %>

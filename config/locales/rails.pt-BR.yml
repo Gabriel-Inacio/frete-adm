@@ -3,6 +3,11 @@ pt-BR:
   sessions:
     admin_user:
       signed_in: Login realizado com sucesso
+  failure:
+    admin_user:
+      unauthenticated: Não autenticado
+      already_authenticated: Já está autenticado
+      invalid: Inválido
  button:
   new: Novo(a) %{model}
   return: Voltar
@@ -36,6 +41,7 @@ pt-BR:
        percentage: Porcentagem
        total: Total
        value_total_freight: "Valor dos Fretes"
+       truckId: "Caminhão"
      client:
        name: Nome
        cpf: CPF
@@ -79,11 +85,52 @@ pt-BR:
        motorist:
          attributes:
            cpf:
-             invalid: "CPF Inválido"
+             invalid: "CPF inválido"
+             taken: "CPF já cadastrado"
+           name:
+             blank: "Campo em branco"
        client:
          attributes:
             cpf:
-              invalid: "CPF Inválido"
+              invalid: "CPF inválido"
+              taken: "CPF já cadastrado"
+            name:
+              blank: "Campo em branco"
+       truck:
+         attributes:
+            board:
+              blank: "Campo em branco"
+       freight:
+         attributes:
+            spent:
+              not_a_number: "Não é um número"
+              blank: "Campo em branco"
+            origin:
+              blank: "Campo em branco"
+            destination:
+              blank: "Campo em branco"
+            valueKm:
+              blank: "Campo em branco"
+            distanceKm:
+              blank: "Campo em branco"
+            arrivalDate:
+              blank: "Campo em branco"
+            exitDate:
+              blank: "Campo em branco"
+            truckId:
+              blank: "Campo em branco"
+            clientId:
+              blank: "Campo em branco"
+            motoristId:
+              blank: "Campo em branco"
+       spent:
+         attributes:
+            truck_id:
+              blank: "Campo em branco"
+            value:
+              blank: "Campo em branco"
+            date_spent:
+              blank: "Campo em branco"
  time:
    am: ''
    formats:

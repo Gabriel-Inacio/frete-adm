@@ -12,7 +12,8 @@ class Freight < ActiveRecord::Base
 
   scope :by_paid, lambda{|paid| where("paidDriver = ?", paid)}
 
-  validates :truckId, :motoristId, :clientId, :presence => true
+  validates :truckId, :motoristId, :clientId, :valueKm, :distanceKm, :origin, :destination, :situation,
+            :exitDate, :arrivalDate, :presence => true
 
   validates :spent, :numericality => { :greater_than_or_equal_to => 0 }
 

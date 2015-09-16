@@ -10,7 +10,7 @@ ActiveAdmin.register Truck do
 
   index do
     column :board do |truck|
-      link_to :board, edit_admin_truck_path(truck)
+      link_to truck.board , edit_admin_truck_path(truck)
     end
     column :year
   end
