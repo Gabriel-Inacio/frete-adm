@@ -4,9 +4,9 @@ ActiveAdmin.register Transation do
     link_to(I18n.t('button.return'), admin_transations_path)
   end
 
-  action_item :only => [:index] do
-    link_to(I18n.t('button.report'), admin_transation_report_path)
-  end
+  #action_item :only => [:index] do
+  #  link_to(I18n.t('button.report'), admin_transation_report_path)
+  #end
 
   form :partial => "form"
 
@@ -38,10 +38,13 @@ ActiveAdmin.register Transation do
     end
 
     def get_report
-      params[:start_date] = "01/01/2000" if params[:start_date].nil?
-      params[:end_date] = "01/01/3000" if params[:end_date].nil?
-      @transations = Transation.where(:dateTransation => params[:start_date].to_date..params[:end_date].to_date)
-      @transations = @transations.where(:truck_id => params[:truck_chosen]) if params[:truck_chosen].present?
+      params[:transation][:start_date].present? ? params[:start_date] = DateHelper.format_date(DateHelper.str_to_date2 params[:transation][:start_date]) : params[:start_date] = "01/01/2000"
+      params[:transation][:end_date].present? ? params[:end_date] = DateHelper.format_date(DateHelper.str_to_date2 params[:transation][:end_date]) : params[:end_date] = "01/01/3000"
+      if params[:transation][:truck_chosen].present?
+        @transations = (Transation.where(:dateTransation => params[:start_date].to_date..params[:end_date].to_date).where(:truckId =>  params[:transation][:truck_chosen].to_i))
+      else
+        @transations = Transation.where(:dateTransation => params[:start_date].to_date..params[:end_date].to_date)
+      end
       in_transation = @transations.where(:type_transation => true) if @transations.present?
       out_transation = @transations.where(:type_transation => false) if @transations.present?
       in_transation.present? ? @in = in_transation.sum(:value).to_i : @in = 0

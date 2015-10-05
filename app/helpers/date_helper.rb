@@ -18,18 +18,18 @@ module DateHelper
   end
 
   def self.format_date(date, format = "%d/%m/%Y")
-    if date and date.class == String and !date.empty?
+    if date && date.class == String && !date.empty?
       self.format_date(Date.parse(date), format)
     else
-  	  date.strftime(format) if date and date.class != String
+  	  date.strftime(format) if date && date.class != String
     end
   end
 
   def self.format_date_time(datetime, format = "%d/%m/%Y - %H:%M:%S")
-    if datetime and datetime.class == String and !datetime.empty?
+    if datetime && datetime.class == String && !datetime.empty?
       self.format_date_time(DateTime.parse(datetime), format)
     else
-      datetime.strftime(format) if datetime and datetime.class != String
+      datetime.strftime(format) if datetime && datetime.class != String
     end
   end
 
