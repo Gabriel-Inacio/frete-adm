@@ -45,6 +45,7 @@ ActiveAdmin.register Transation do
       else
         @transations = Transation.where(:dateTransation => params[:start_date].to_date..params[:end_date].to_date)
       end
+      @transations = @transations.order(:dateTransation)
       in_transation = @transations.where(:type_transation => true) if @transations.present?
       out_transation = @transations.where(:type_transation => false) if @transations.present?
       in_transation.present? ? @in = in_transation.sum(:value).to_i : @in = 0

@@ -46,7 +46,7 @@
       <file leaf-file-name="transation.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/admin/transation.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="17" selection-start="1694" selection-end="1694" vertical-scroll-proportion="0.63414633" vertical-offset="289" max-vertical-offset="945">
+            <state line="47" column="19" selection-start="1696" selection-end="1696" vertical-scroll-proportion="0.63414633" vertical-offset="289" max-vertical-offset="960">
               <folding />
             </state>
           </provider>
@@ -857,7 +857,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/admin/transation.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="17" selection-start="1694" selection-end="1694" vertical-scroll-proportion="0.63414633" vertical-offset="289" max-vertical-offset="945">
+        <state line="47" column="19" selection-start="1696" selection-end="1696" vertical-scroll-proportion="0.63414633" vertical-offset="289" max-vertical-offset="960">
           <folding />
         </state>
       </provider>
