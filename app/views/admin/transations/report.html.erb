@@ -1,5 +1,5 @@
 <br clear="all">
-<h3>Relatório Geral Transações</h3>
+<h3>Relatório Geral de sáida com fretes</h3>
 <table class="index_table campo70">
 
   <thead>
@@ -7,31 +7,51 @@
     <th>Data</th>
     <th>caminhão</th>
     <th>Descrição</th>
-    <th>Tipo</th>
     <th>Valor</th>
     <th>Referente ao</th>
   </tr>
   </thead>
 
   <tbody>
-    <% if @transations.present? %>
-      <% @transations.each do |transation| %>
+    <% if @freights_spent.present? %>
+      <% @freights_spent.each do |freight| %>
           <tr>
-            <td><%= DateHelper.format_date(transation["dateTransation"]) %></td>
-            <td><%= transation.truck.board if transation.truck.present? %></td>
-            <td><%= transation["description"] %></td>
-            <td><%= (transation["type_transation"] ? "Entrada" : "Saida") %>
-            <td><%= transation["value"] %></td>
-            <% if transation["objectName"] == "Freight" %>
-                <td><%= link_to "frete", edit_admin_freight_path(transation["objectId"]) %></td>
-            <% elsif transation["objectName"] == "Motorist" %>
-                <td><%= link_to "motorista", edit_admin_motorist_path(transation["objectId"]) %></td>
-            <% else %>
-                <td></td>
-            <% end %>
+            <td><%= (DateHelper.format_date(freight["exitDate"])) + " - " + (DateHelper.format_date(freight["arrivalDate"])) %></td>
+            <td><%= freight.truck.board if freight.truck.present? %></td>
+            <td><%= freight["description"] %></td>
+            <td><%= freight["spent"] %></td>
+            <td><%= link_to "frete de #{freight["origin"]} - #{freight["destination"]}, #{freight["client"]["name"]}", edit_admin_freight_path(freight["id"]) %></td>
           </tr>
       <% end %>
     <% end %>
+  </tbody>
+</table>
+
+<h3>Relatório Geral de entradas com fretes</h3>
+<table class="index_table campo70">
+
+  <thead>
+  <tr>
+    <th>Data</th>
+    <th>caminhão</th>
+    <th>Descrição</th>
+    <th>Valor</th>
+    <th>Referente ao</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% if @freights_receipt.present? %>
+      <% @freights_receipt.each do |freight| %>
+          <tr>
+            <td><%= (DateHelper.format_date(freight["exitDate"])) + " - " + (DateHelper.format_date(freight["arrivalDate"])) %></td>
+            <td><%= freight.truck.board if freight.truck.present? %></td>
+            <td><%= freight["description"] %></td>
+            <td><%= freight["spent"] %></td>
+            <td><%= link_to "frete de #{freight["origin"]} - #{freight["destination"]}, #{freight["client"]["name"]}", edit_admin_freight_path(freight["id"]) %></td>
+          </tr>
+      <% end %>
+  <% end %>
   </tbody>
 </table>
 
@@ -46,9 +66,9 @@
 
   <tbody>
       <tr>
-        <td><%= @in %></td>
-        <td><%= @out %></td>
-        <td><%= @liquid %></td>
+        <td><%= "199" %></td>
+        <td><%= "200" %></td>
+        <td><%= "-1" %></td>
       </tr>
   </tbody>
 

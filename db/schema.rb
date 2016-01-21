@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150916124634) do
+ActiveRecord::Schema.define(version: 20151217055130) do
 
   create_table "People", force: true do |t|
     t.string   "name"
@@ -68,11 +68,12 @@ ActiveRecord::Schema.define(version: 20150916124634) do
     t.decimal  "spent"
     t.text     "descriptionSpent"
     t.integer  "numberHead"
-    t.datetime "exitDate"
-    t.datetime "arrivalDate"
+    t.date     "exitDate"
+    t.date     "arrivalDate"
     t.boolean  "paidDriver"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "receipt_date"
   end
 
   create_table "spents", force: true do |t|

@@ -6,7 +6,7 @@ class Freight < ActiveRecord::Base
 
   attr_accessible :truckId, :truck, :motorist, :motoristId, :client, :clientId, :origin,
       :destination, :valueKm, :distanceKm, :description, :situation, :spent, :descriptionSpent,
-      :numberHead, :exitDate, :arrivalDate, :paidDriver
+      :numberHead, :exitDate, :arrivalDate, :paidDriver, :receipt_date
 
   scope :by_motorist, lambda{|motorist_id| where("motoristId = ?", motorist_id)}
 
@@ -16,23 +16,6 @@ class Freight < ActiveRecord::Base
             :exitDate, :arrivalDate, :presence => true
 
   validates :spent, :numericality => { :greater_than_or_equal_to => 0 }
-
-  after_update :save_transation
-
-  after_create :save_transation_freigh_value
-
-  def save_transation
-    if ( self.situation_changed?)
-      Transation.new(:truckId => self.truckId, :value => (self.valueKm * self.distanceKm), :objectId => self.id, :objectName => self.class.name, :dateTransation => Date.today, :description => "Recebendo o frete", :type_transation => true).save
-    end
-  end
-
-  def save_transation_freigh_value
-    Transation.new(:truckId => self.truckId, :value => self.spent, :objectId => self.id, :objectName => self.class.name, :dateTransation => Date.today, :description => "Gasto com frete", :type_transation => false).save
-    if (self.situation == true)
-      Transation.new(:truckId => self.truckId, :value => (self.valueKm * self.distanceKm), :objectId => self.id, :objectName => self.class.name, :dateTransation => Date.today, :description => "Recebendo o frete", :type_transation => false).save
-    end
-  end
 
 
 end

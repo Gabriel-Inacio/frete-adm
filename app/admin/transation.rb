@@ -40,17 +40,16 @@ ActiveAdmin.register Transation do
     def get_report
       params[:transation][:start_date].present? ? params[:start_date] = DateHelper.format_date(DateHelper.str_to_date2 params[:transation][:start_date]) : params[:start_date] = "01/01/2000"
       params[:transation][:end_date].present? ? params[:end_date] = DateHelper.format_date(DateHelper.str_to_date2 params[:transation][:end_date]) : params[:end_date] = "01/01/3000"
+
       if params[:transation][:truck_chosen].present?
-        @transations = (Transation.where(:dateTransation => params[:start_date].to_date..params[:end_date].to_date).where(:truckId =>  params[:transation][:truck_chosen].to_i))
+        @freights_spent = (Freight.where("exitDate >= ? OR exitDate <= ?", params[:start_date].to_date, params[:end_date].to_date ).where(:truckId =>  params[:transation][:truck_chosen].to_i))
+        @freights_receipt  = (Freight.where("receipt_date >= ? OR receipt_date <= ?", params[:start_date].to_date, params[:end_date].to_date ).where(:truckId =>  params[:transation][:truck_chosen].to_i))
+        @spents = (Spent.where("date_spent >= ? OR date_spent <= ?", params[:start_date].to_date, params[:end_date].to_date ).where(:truck_id =>  params[:transation][:truck_chosen].to_i))
       else
-        @transations = Transation.where(:dateTransation => params[:start_date].to_date..params[:end_date].to_date)
+        @freights_spent = Freight.where("exitDate >= ? OR exitDate <= ?", params[:start_date].to_date, params[:end_date].to_date )
+        @freights_receipt = Freight.where("receipt_date >= ? OR receipt_date <= ?", params[:start_date].to_date, params[:end_date].to_date )
+        @spents = Spent.where("date_spent >= ? OR date_spent <= ?", params[:start_date].to_date, params[:end_date].to_date )
       end
-      @transations = @transations.order(:dateTransation)
-      in_transation = @transations.where(:type_transation => true) if @transations.present?
-      out_transation = @transations.where(:type_transation => false) if @transations.present?
-      in_transation.present? ? @in = in_transation.sum(:value).to_i : @in = 0
-      out_transation.present? ? @out = out_transation.sum(:value).to_i : @out = 0
-      @liquid = @in - @out
 
       render "admin/transations/report"
     end
