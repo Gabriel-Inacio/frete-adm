@@ -6,10 +6,4 @@ class Spent < ActiveRecord::Base
 
 	validates :truck_id, :date_spent, :value, :presence => true
 
-	after_create :save_transation
-
-  def save_transation
-      	Transation.new(:truckId => self.truck_id, :value => self.value, :objectId => self.id, :objectName => self.class.name, :dateTransation => self.date_spent, :description => self.description, :type_transation => false).save
-  end
-
 end
