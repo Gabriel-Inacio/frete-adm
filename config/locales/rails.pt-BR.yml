@@ -69,6 +69,7 @@ pt-BR:
        exitDate: "Data de saída"
        arrivalDate: "Data de Chegada"
        paidDriver: "Motorista pago"
+       receipt_date: "Data de recebimento"
      transation:
        description: "Descrição"
        value: Valor

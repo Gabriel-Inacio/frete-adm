@@ -6,7 +6,9 @@ class Freight < ActiveRecord::Base
 
   attr_accessible :truckId, :truck, :motorist, :motoristId, :client, :clientId, :origin,
       :destination, :valueKm, :distanceKm, :description, :situation, :spent, :descriptionSpent,
-      :numberHead, :exitDate, :arrivalDate, :paidDriver, :receipt_date
+      :numberHead, :exitDate, :arrivalDate, :paidDriver, :receipt_date, :client_attributes
+
+  accepts_nested_attributes_for :client
 
   scope :by_motorist, lambda{|motorist_id| where("motoristId = ?", motorist_id)}
 

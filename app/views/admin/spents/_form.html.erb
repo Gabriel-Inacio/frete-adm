@@ -1,19 +1,11 @@
 <%= semantic_form_for [:admin, @spent] do |f| %>
 
     <%= f.inputs do %>
-    	<% if f.object.new_record? %>
-    		<%= f.input :truck, :as => :select, :collection => Truck.all.map{|b| [b.board,b.id]}, input_html: { class: "campo10"} %>
-	        <%= f.input :value, input_html: { class: "campo10 money", :"data-thousands" => "", :"data-decimal" => ".", :"data-prefix" => ""}  %>
-	        <%= f.input :description, as: :text, input_html: { class: "campo20", rows: 5,
-	                                                           onkeyup: "maxLengthText(this);", maxlength: "1000" }, :hint=> "<span id=\"contador\"></span>".html_safe %>
-	        <%= f.input :date_spent, :as => :string, :input_html => {class: "campo10 input_date_picker", value: DateHelper.format_date(f.object.date_spent) }  %>
-	    <% else %>
-	        <%= f.input :truck, :as => :select, :collection => Truck.all.map{|b| [b.board,b.id]}, input_html: { class: "input-non-edit campo10", :disabled => true, :readonly => true} %>
-	        <%= f.input :value, input_html: { class: "campo10 money input-non-edit", :"data-thousands" => "", :"data-decimal" => ".", :"data-prefix" => "", :readonly => true}  %>
-	        <%= f.input :description, as: :text, input_html: { class: "input-non-edit campo20", rows: 5,
-	                                                           onkeyup: "maxLengthText(this);", maxlength: "1000", :readonly => true }, :hint=> "<span id=\"contador\"></span>".html_safe %>
-	        <%= f.input :date_spent, :as => :string, :input_html => {class: "input-non-edit campo10", :readonly => true, value: DateHelper.format_date(f.object.date_spent)}  %>
-	    <% end %>	
+  		<%= f.input :truck, :as => :select, :collection => Truck.all.map{|b| [b.board,b.id]}, input_html: { class: "campo10"} %>
+        <%= f.input :value, input_html: { class: "campo10 money", :"data-thousands" => "", :"data-decimal" => ".", :"data-prefix" => ""}  %>
+        <%= f.input :description, as: :text, input_html: { class: "campo20", rows: 5,
+                                                           onkeyup: "maxLengthText(this);", maxlength: "1000" }, :hint=> "<span id=\"contador\"></span>".html_safe %>
+        <%= f.input :date_spent, :as => :string, :input_html => {class: "campo10 input_date_picker", value: DateHelper.format_date(f.object.date_spent) }  %>	
     <% end %>
 <%= f.actions %>
 <% end %>

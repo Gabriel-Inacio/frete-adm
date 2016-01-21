@@ -43,14 +43,17 @@ ActiveAdmin.register Transation do
 
       if params[:transation][:truck_chosen].present?
         @freights_spent = (Freight.where("exitDate >= ? OR exitDate <= ?", params[:start_date].to_date, params[:end_date].to_date ).where(:truckId =>  params[:transation][:truck_chosen].to_i))
-        @freights_receipt  = (Freight.where("receipt_date >= ? OR receipt_date <= ?", params[:start_date].to_date, params[:end_date].to_date ).where(:truckId =>  params[:transation][:truck_chosen].to_i))
+        @freights_receipt  = (Freight.where("receipt_date >= ? OR receipt_date <= ? AND situation = 1", params[:start_date].to_date, params[:end_date].to_date ).where(:truckId =>  params[:transation][:truck_chosen].to_i))
         @spents = (Spent.where("date_spent >= ? OR date_spent <= ?", params[:start_date].to_date, params[:end_date].to_date ).where(:truck_id =>  params[:transation][:truck_chosen].to_i))
       else
         @freights_spent = Freight.where("exitDate >= ? OR exitDate <= ?", params[:start_date].to_date, params[:end_date].to_date )
-        @freights_receipt = Freight.where("receipt_date >= ? OR receipt_date <= ?", params[:start_date].to_date, params[:end_date].to_date )
+        @freights_receipt = Freight.where("receipt_date >= ? OR receipt_date <= ? AND situation = 1", params[:start_date].to_date, params[:end_date].to_date )
         @spents = Spent.where("date_spent >= ? OR date_spent <= ?", params[:start_date].to_date, params[:end_date].to_date )
       end
 
+      @spent_total= @spents.sum(:value)
+      @freights_spent_total = @freights_spent.sum(:spent)
+      @freights_receipt_total = 0
       render "admin/transations/report"
     end
   end
