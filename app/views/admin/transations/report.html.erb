@@ -4,7 +4,7 @@
 
   <thead>
   <tr>
-    <th>Data</th>
+    <th>Data de chegada</th>
     <th>caminhão</th>
     <th>Descrição</th>
     <th>Valor</th>
@@ -17,7 +17,7 @@
       <% @freights_spent.each do |freight| %>
           <% client_name = freight.client.name if freight.client.present? %>
           <tr>
-            <td><%= (DateHelper.format_date(freight["exitDate"])) + " - " + (DateHelper.format_date(freight["arrivalDate"])) %></td>
+            <td><%= (DateHelper.format_date(freight["arrivalDate"])) %></td>
             <td><%= freight.truck.board if freight.truck.present? %></td>
             <td><%= freight["description"] %></td>
             <td><%= freight["spent"] %></td>
@@ -33,7 +33,8 @@
 
   <thead>
   <tr>
-    <th>Data</th>
+    <th>Data de chegada</th>
+    <th>Data do recebimento </th>
     <th>caminhão</th>
     <th>Descrição</th>
     <th>Valor</th>
@@ -46,7 +47,8 @@
       <% @freights_receipt.each do |freight| %>
             <% client_name = freight.client.name if freight.client.present? %> 
           <tr>
-            <td><%= (DateHelper.format_date(freight["exitDate"])) + " - " + (DateHelper.format_date(freight["arrivalDate"])) %></td>
+            <td><%= (DateHelper.format_date(freight["arrivalDate"])) %></td>
+            <td><%= (DateHelper.format_date(freight["receipt_date"])) %></td>
             <td><%= freight.truck.board if freight.truck.present? %></td>
             <td><%= freight["description"] %></td>
             <td><%= freight["valueKm"]*freight["distanceKm"] %></td>
