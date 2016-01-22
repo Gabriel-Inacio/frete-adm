@@ -7,10 +7,32 @@
     <% end %>
     <%= f.actions %>
 
-    <% if @motorist.present? %>
+    <% if @motorist.paid_motorists.present? %>
 
         <div class="div-separar clear-both">&nbsp;</div>
 
+        <h3> Pagamentos</h3>
+
+        <table class="index_table">
+          <thead>
+          <tr>
+            <th>Data</th>
+            <th>Valor</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @motorist.paid_motorists.order(date: :desc).each do |f|%>
+              <tr>
+                <td><%= DateHelper.format_date(f.date) %></td>
+                <td><%= f.value %></td>
+              </tr>
+          <%end%>
+          </tbody>
+        </table>
+    <%end%>
+
+    <% if @motorist.present? %>
+        <h3>Fretes</h3>
         <table class="index_table">
           <thead>
           <tr>
