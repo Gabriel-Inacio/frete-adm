@@ -6,14 +6,14 @@ ActiveAdmin.register Freight do
 
   form :partial => "form"
 
-  actions :all, :except => [:destroy, :show]
+  actions :all, :except => [:show]
 
   index do
     column :client do |freight|
-      link_to freight.client.name, edit_admin_client_path(freight.truck)
+      link_to freight.client.name, edit_admin_client_path(freight.truck) if freight.client.present?
     end
     column :motorist do |freight|
-      link_to freight.motorist.name, edit_admin_motorist_path(freight.motorist)
+      link_to freight.motorist.name, edit_admin_motorist_path(freight.motorist) if freight.motorist.present?
     end
     column :origin
     column :destination
@@ -29,9 +29,7 @@ ActiveAdmin.register Freight do
     column :paidDriver do |freight|
       status_tag(StatusHelper::PAID_DRIVER[freight.paidDriver],(freight.paidDriver == 0 ? :warning : :ok))
     end
-    column "" do |freight|
-      link_to "editar", edit_admin_freight_path(freight)
-    end
+    actions
   end
 
   controller do

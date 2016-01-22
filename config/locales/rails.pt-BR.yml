@@ -28,6 +28,7 @@ pt-BR:
       person: Pessoas
       transation: Transações
       spent: Gastos
+      paid_motorist: Pagar Motorista
    attributes:
      truck:
        board: Placa
@@ -42,6 +43,7 @@ pt-BR:
        total: Total
        value_total_freight: "Valor dos Fretes"
        truckId: "Caminhão"
+       paid_motorist: "Pagar Motorista"
      client:
        name: Nome
        cpf: CPF

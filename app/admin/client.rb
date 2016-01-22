@@ -6,7 +6,7 @@ ActiveAdmin.register Client do
 
   form :partial => "form"
 
-  actions :all, :except => [:destroy, :show]
+  actions :all, :except => [:show]
 
   index do
     column :name do |client|
@@ -14,6 +14,7 @@ ActiveAdmin.register Client do
     end
     column :cpf
     column :phone
+    actions
   end
 
   controller do

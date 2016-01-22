@@ -6,13 +6,14 @@ ActiveAdmin.register Truck do
 
   form :partial => "form"
 
-  actions :all, :except => [:destroy, :show]
+  actions :all, :except => [:show]
 
   index do
     column :board do |truck|
       link_to truck.board , edit_admin_truck_path(truck)
     end
     column :year
+    actions
   end
 
   controller do

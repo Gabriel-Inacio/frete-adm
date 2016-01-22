@@ -6,7 +6,7 @@ ActiveAdmin.register Spent do
 
   form :partial => "form"
 
-  actions :all, :except => [:destroy, :show]
+  actions :all, :except => [:show]
 
   index do
     column :truck do |spent|

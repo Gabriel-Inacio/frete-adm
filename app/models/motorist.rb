@@ -4,7 +4,7 @@ class Motorist < Person
 
   has_many :freights, :class_name => "Freight", :foreign_key => "motoristId"
 
-  has_many :paid_motorists, :class_name => "PaidMotorist", :foreign_key => "motoristId"
+  has_many :paid_motorists, :class_name => "PaidMotorist", :foreign_key => "motoristId", :dependent => :destroy
 
   accepts_nested_attributes_for :freights, :paid_motorists
 

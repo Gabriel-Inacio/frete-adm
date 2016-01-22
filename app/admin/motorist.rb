@@ -10,7 +10,7 @@ ActiveAdmin.register Motorist do
 
   form :partial => "form"
 
-  actions :all, :except => [:destroy, :show]
+  actions :all, :except => [:show]
 
   index do
     column :name do |motorist|
@@ -21,6 +21,7 @@ ActiveAdmin.register Motorist do
     column "" do |motorist|
       link_to(I18n.t('button.paid_motorist'),admin_motorist_paid_path(:id => motorist.id))
     end
+    actions
   end
 
   controller do
@@ -32,6 +33,7 @@ ActiveAdmin.register Motorist do
     end
 
     def paid_motorist
+      @page_title=I18n.t("activerecord.attributes.motorist.paid_motorist")
       @freights = Freight.by_motorist(params[:id]).by_paid(false)
       @value_total = 0
       @freights.each do |freight|
