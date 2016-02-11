@@ -1,5 +1,11 @@
 ActiveAdmin.register Spent do
 
+  filter :truck, :as => :select,
+         :collection => Truck.all.map { |s| ["#{s.board}", s.id] }
+  filter :date_spent
+  filter :value
+  filter :description
+
   action_item :only => [:show, :create, :update] do
     link_to(I18n.t('button.return'), admin_spents_path)
   end

@@ -69,5 +69,10 @@ Rails.application.routes.draw do
   post  'admin/motorists/paid_motorist_step_2' => 'admin/motorists#paid_motorist_step_2',
        :as => :admin_motorist_paid_step_2
 
+get  'admin/motorists/valley_motorist' => 'admin/motorists#valley_motorist',
+        :as => :admin_motorist_valley
+
+  post  'admin/motorists/valley_motorist_step_2' => 'admin/motorists#valley_motorist_step_2',
+       :as => :admin_motorist_valley_step_2
 
 end

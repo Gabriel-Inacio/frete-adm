@@ -31,6 +31,30 @@
         </table>
     <%end%>
 
+    <% if @motorist.valleys.where(:status=>false).present? %>
+        
+        <h3>Vales</h3>
+        <table class="index_table">
+          <thead>
+          <tr>
+            <th>Data</th>
+            <th>Valor</th>
+            <th>Descrição</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <%  @motorist.valleys.where(:status=>false).each do |valley| %>
+              <tr>
+                <td><%= DateHelper.format_date(valley.date) %></td>
+                <td><%= valley.value %></td>
+                <td><%= valley.description %></td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+    <%end%>
+         <br>
     <% if @motorist.present? %>
         <h3>Fretes</h3>
         <table class="index_table">

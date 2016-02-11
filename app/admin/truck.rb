@@ -1,5 +1,9 @@
 ActiveAdmin.register Truck do
 
+  filter :board
+  filter :axes
+  filter :year
+
   action_item :only => [:edit, :new, :create, :update] do
     link_to(I18n.t('button.return'), admin_trucks_path)
   end

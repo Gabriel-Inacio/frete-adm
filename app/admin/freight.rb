@@ -4,6 +4,11 @@ ActiveAdmin.register Freight do
     link_to(I18n.t('button.return'), admin_freights_path)
   end
 
+  filter :motorist
+  filter :client
+  filter :truck, :as => :select,
+         :collection => Truck.all.map { |s| ["#{s.board}", s.id] }
+
   form :partial => "form"
 
   actions :all, :except => [:show]

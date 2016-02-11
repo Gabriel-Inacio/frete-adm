@@ -1,0 +1,14 @@
+<%= semantic_form_for @valley, :url => admin_motorist_valley_step_2_path, :method => :post,
+                      :html => { :target => :_blank } do |f| %>
+
+      <%= f.inputs do %>
+          <%= f.input :motorist, :as => :select, :collection => Motorist.where(:type_person => 1)%>
+          <%= f.input :value, input_html: { class: "campo10" } %>
+          <%= f.input :date, :as => :string, :input_html => {class: "campo10 input_date_picker", value: DateHelper.format_date(f.object.date)}  %>
+          <%= f.input :description, as: :text, input_html: { class: "campo20", rows: 5,
+                                                   onkeyup: "maxLengthText(this);", maxlength: "1000" }, :hint=> "<span id=\"contador\"></span>".html_safe %>
+      <% end %>
+    <%= f.actions do %>
+            <%= f.action :submit, :label => I18n.t('button.valley_confirm') %>
+    <% end %>
+<% end %>
