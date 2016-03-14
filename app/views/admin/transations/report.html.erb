@@ -104,6 +104,13 @@
             <td><%= link_to "Gasto de identificador #{spent["id"]}", edit_admin_spent_path(spent["id"]) %></td>
           </tr>
       <% end %>
+      <tr>
+        <td><%=  %></td>
+        <td><%=  %></td>
+        <td><%= "total dos gastos" %></td>
+        <td><%= @spent_total %></td>
+        <td><%=  %></td>
+      </tr>
   <% end %>
   </tbody>
 </table>
