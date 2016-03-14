@@ -38,16 +38,20 @@ ActiveAdmin.register Transation do
     end
 
     def get_report
-      params[:transation][:start_date].present? ? params[:start_date] = Date.parse(params[:transation][:start_date]) : params[:start_date] = "01/01/2000"
-      params[:transation][:end_date].present? ? params[:end_date] = Date.parse(params[:transation][:end_date]) : params[:end_date] = "01/01/3000"
-      if params[:transation][:truck_chosen].present?
-        @freights_spent = (Freight.where("arrivalDate >= ? AND arrivalDate <= ?", params[:start_date].to_date, params[:end_date].to_date ).where(:truckId =>  params[:transation][:truck_chosen].to_i))
-        @freights_receipt  = (Freight.where("receipt_date >= ? AND receipt_date <= ? AND situation = 1", params[:start_date].to_date, params[:end_date].to_date ).where(:truckId =>  params[:transation][:truck_chosen].to_i))
-        @spents = (Spent.where("date_spent >= ? AND date_spent <= ?", params[:start_date].to_date, params[:end_date].to_date ).where(:truck_id =>  params[:transation][:truck_chosen].to_i))
-      else
-        @freights_spent = Freight.where("arrivalDate >= ? AND arrivalDate <= ?", params[:start_date].to_date, params[:end_date].to_date )
-        @freights_receipt = Freight.where("receipt_date >= ? AND receipt_date <= ? AND situation = 1", params[:start_date].to_date, params[:end_date].to_date )
-        @spents = Spent.where("date_spent >= ? AND date_spent <= ?", params[:start_date].to_date, params[:end_date].to_date )
+      params[:transation][:start_date] =  "01/01/2000" if !params[:transation][:start_date].present?
+      params[:transation][:end_date] = "01/01/3000" if !params[:transation][:end_date].present?
+      start_date = params[:transation][:start_date].to_date
+      end_date = params[:transation][:end_date].to_date
+      truck_id = params[:transation][:truck_chosen].to_i if params[:transation][:truck_chosen].present?
+
+      @freights_spent = Freight.where("arrivalDate >= ? AND arrivalDate <= ?", start_date, end_date )
+      @freights_receipt = Freight.where("receipt_date >= ? AND receipt_date <= ? AND situation = 1", start_date, end_date )
+      @spents = Spent.where("date_spent >= ? AND date_spent <= ?", start_date, end_date )
+
+      if truck_id.present?
+        @freights_spent = @freights_spent.where(:truckId => truck_id)
+        @freights_receipt  = @freights_receipt.where(:truckId =>  truck_id)
+        @spents = @spents.where(:truck_id =>  truck_id)
       end
 
       @spent_total= @spents.sum(:value)
