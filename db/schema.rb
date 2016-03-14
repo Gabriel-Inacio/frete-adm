@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160121161740) do
+ActiveRecord::Schema.define(version: 20160210203844) do
 
   create_table "People", force: true do |t|
     t.string   "name"
@@ -112,6 +112,16 @@ ActiveRecord::Schema.define(version: 20160121161740) do
     t.string   "board"
     t.integer  "year"
     t.integer  "axes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "valleys", force: true do |t|
+    t.integer  "motoristId"
+    t.decimal  "value"
+    t.datetime "date"
+    t.boolean  "status"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

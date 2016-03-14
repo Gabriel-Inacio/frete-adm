@@ -1,11 +1,19 @@
 ActiveAdmin.register Motorist do
 
+  filter :name
+  filter :cpf
+  filter :phone
+
   action_item :only => [:edit, :new, :create, :update, :paid_motorist] do
     link_to(I18n.t('button.return'), admin_motorists_path)
   end
 
   action_item :only => [:edit] do
     link_to(I18n.t('button.paid_motorist'),admin_motorist_paid_path(:id => motorist.id))
+  end
+
+  action_item :only => [:edit] do
+    link_to(I18n.t('button.valley_motorist'),admin_motorist_valley_path(:id => motorist.id))
   end
 
   form :partial => "form"
@@ -27,9 +35,22 @@ ActiveAdmin.register Motorist do
   controller do
     def index
       index! do |format|
-        @motorists = Motorist.where(type_person: 1)
-        @motorists = @motorists.page(params[:page] || 1)
+        # @motorists = Motorist.where(type_person: 1)
+        # @motorists = @motorists.page(params[:page] || 1)
       end
+    end
+
+    def valley_motorist
+      @page_title=I18n.t("activerecord.attributes.motorist.valley_motorist")
+      @valley = Valley.new
+      render :valley_motorist
+    end
+
+    def valley_motorist_step_2
+      params[:valley][:date] = Date.parse(params[:valley][:date]) if params[:valley][:date].present?
+      params[:valley][:status] = false if params[:valley].present?
+      Valley.new(params[:valley]).save
+      redirect_to action: :edit,  id: params[:valley][:motoristId]
     end
 
     def paid_motorist
@@ -40,6 +61,7 @@ ActiveAdmin.register Motorist do
         @value_total += freight.valueKm * freight.distanceKm
       end
       @motorist = Motorist.find params[:id]
+      @total_valley = @motorist.valleys.where(:status=>false).sum(:value)
       render :paid_motorist
     end
 
@@ -49,6 +71,11 @@ ActiveAdmin.register Motorist do
       @freights.each do |freight|
         freight.paidDriver = true
         freight.save
+      end
+      @valleys = @motorist.valleys.where(:status=>false)
+      @valleys.each do |valley|
+        valley.status = true
+        valley.save
       end
       PaidMotorist.new( :value => (params[:motorist][:total].to_f), :motoristId => @motorist.id, :truckId => params[:motorist][:truckId]  ,:date => Date.today, :description => "Pagamento do motorista #{@motorist.name}").save
       redirect_to action: :edit,  id: @motorist.id

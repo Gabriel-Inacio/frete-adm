@@ -1,4 +1,8 @@
-class Client < Person
+class Client  < ActiveRecord::Base
+
+  self.table_name = "People"
+
+  default_scope { where(type_person: '2') }
 
   before_create :set_type_person
 

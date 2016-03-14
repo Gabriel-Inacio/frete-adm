@@ -18,6 +18,8 @@ pt-BR:
   run_report: Gerar Relatório
   paid_confirm: Finalizar pagamento
   paid_motorist: Pagar Motorista
+  valley_confirm: Finalizar vale
+  valley_motorist: Criar Vale
 
  activerecord:
    models: &models
@@ -29,7 +31,15 @@ pt-BR:
       transation: Transações
       spent: Gastos
       paid_motorist: Pagar Motorista
+      valley: Vale
    attributes:
+     valley:
+       value: Valor
+       description: Descrição
+       date: Data
+       motorist: Motorista
+       motorist_id: Motorista
+       status: Status
      truck:
        board: Placa
        year: Ano
@@ -44,6 +54,8 @@ pt-BR:
        value_total_freight: "Valor dos Fretes"
        truckId: "Caminhão"
        paid_motorist: "Pagar Motorista"
+       valley_motorist: "Criar vale"
+       total_valley: "Valor total dos vales"
      client:
        name: Nome
        cpf: CPF
@@ -72,6 +84,7 @@ pt-BR:
        arrivalDate: "Data de Chegada"
        paidDriver: "Motorista pago"
        receipt_date: "Data de recebimento"
+       truck_board: "Caminhão"
      transation:
        description: "Descrição"
        value: Valor
@@ -98,6 +111,14 @@ pt-BR:
               invalid: "CPF inválido"
               taken: "CPF já cadastrado"
             name:
+              blank: "Campo em branco"
+       valley:
+         attributes:
+            motoristId:
+              blank: "Campo em branco"
+            value:
+              blank: "Campo em branco"
+            date:
               blank: "Campo em branco"
        truck:
          attributes:

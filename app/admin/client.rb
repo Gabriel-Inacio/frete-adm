@@ -1,5 +1,9 @@
 ActiveAdmin.register Client do
 
+  filter :name
+  filter :cpf
+  filter :phone
+  
   action_item :only => [:edit, :new, :create, :update] do
     link_to(I18n.t('button.return'), admin_motorists_path)
   end
@@ -20,8 +24,8 @@ ActiveAdmin.register Client do
   controller do
     def index
       index! do |format|
-        @clients = Client.where(type_person: 2)
-        @clients = @clients.page(params[:page] || 1)
+        # @clients = Client.where(type_person: 2)
+        # @clients = @clients.page(params[:page] || 1)
       end
     end
 

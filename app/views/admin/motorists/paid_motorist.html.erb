@@ -7,14 +7,41 @@
         <%= f.input :percentage, :input_html => {class: "campo10"} %>
         <%= f.input :value_total_freight, :input_html => { class: "input-non-edit campo10", :readonly => true, value: @value_total } %>
         <%= f.input :total, :input_html => { class: "input-non-edit campo10", :readonly => true} %>
-
+        <%= f.input :total_valley, :input_html => { class: "input-non-edit campo10", :readonly => true, value: @total_valley } %>
         <%= f.actions do %>
             <%= f.action :submit, :label => I18n.t('button.paid_confirm') %>
         <% end %>
     <% end %>
 
+  <% if @motorist.valleys.where(:status=>false).present? %>
+    <h3>Vales</h3>
     <table class="index_table">
       <thead>
+      <tr>
+        <th>Data</th>
+        <th>Valor</th>
+        <th>Descrição</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <%  @motorist.valleys.where(:status=>false).each do |valley| %>
+          <tr>
+            <td><%= DateHelper.format_date(valley.date) %></td>
+            <td><%= valley.value %></td>
+            <td><%= valley.description %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <br>
+    <%end%>
+     
+
+    <h3>Fretes</h3>
+    <table class="index_table">
+      <thead>
+      
       <tr>
         <th>Cliente</th>
         <th>Origem</th>
